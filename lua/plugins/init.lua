@@ -21,21 +21,16 @@ return {
             local languages = {
                 "c",
                 "cpp",
+                "json",
                 "python",
                 "cmake",
+                "javascript",
+                "typescript",
             }
             treesitter.setup()
             treesitter.install(languages)
-
-            vim.api.nvim_create_autocmd("FileType", {
-                pattern = languages,
-                callback = function()
-                    vim.treesitter.start()
-                end,
-            })
         end,
     },
 
-    -- test new blink
-    -- { import = "nvchad.blink.lazyspec" },
+    { import = "nvchad.blink.lazyspec" },
 }

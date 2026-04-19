@@ -1,16 +1,18 @@
 local options = {
+    notify_on_error = true,
+
     formatters_by_ft = {
         lua = { "stylua" },
         css = { "prettier" },
         html = { "prettier" },
-        c_cpp = { "clang-format" },
+        c_cpp = { "clang_format" },
         c = { "clang_format" },
         cpp = { "clang_format" },
     },
 
     formatters = {
         clang_format = {
-            prepend_args = {
+            append_args = {
                 "-style={IndentWidth: 4, TabWidth: 4, UseTab: Never, AccessModifierOffset: 0, IndentAccessModifiers: true, PackConstructorInitializers: Never}",
             },
         },
@@ -21,6 +23,11 @@ local options = {
         timeout_ms = 500,
         lsp_fallback = true,
     },
+
+    init = function()
+        -- If you want the formatexpr, here is the place to set it
+        vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    end,
 }
 
 return options

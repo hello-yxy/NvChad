@@ -5,7 +5,7 @@ local servers = {
     "cssls",
     "clangd",
     "cmake",
-    "clang-format",
+    "tsgo",
 }
 vim.lsp.enable(servers)
 
