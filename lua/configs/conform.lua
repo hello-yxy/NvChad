@@ -13,16 +13,24 @@ local options = {
     formatters = {
         clang_format = {
             append_args = {
-                "-style={IndentWidth: 4, TabWidth: 4, UseTab: Never, AccessModifierOffset: 0, IndentAccessModifiers: true, PackConstructorInitializers: Never}",
+                "-style={"
+                    .. "UseTab: Never,"
+                    .. "TabWidth: 4,"
+                    .. "IndentWidth: 4,"
+                    .. "AccessModifierOffset: -4,"
+                    .. "IndentAccessModifiers: false,"
+                    .. "PackConstructorInitializers: Never,"
+                    .. "MaxEmptyLinesToKeep: 2," -- 最大空行
+                    .. "}",
             },
         },
     },
 
-    format_on_save = {
-        -- These options will be passed to conform.format()
-        timeout_ms = 500,
-        lsp_fallback = true,
-    },
+    -- format_on_save = {
+    --     -- These options will be passed to conform.format()
+    --     timeout_ms = 500,
+    --     lsp_fallback = true,
+    -- },
 
     init = function()
         -- If you want the formatexpr, here is the place to set it
