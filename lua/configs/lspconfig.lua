@@ -6,6 +6,7 @@ local servers = {
     "clangd",
     "cmake",
     "tsgo",
+    "pylsp",
 }
 vim.lsp.enable(servers)
 
